@@ -38,11 +38,11 @@ const check_adjacent_nodes = (row, col, word, board, level, maxRows, maxCol) => 
         board[row][col] = '#'
         let res = 
             /** check top */
-            check_adjacent_nodes(row - 1, col, word, board, level + 1, maxRows, maxCol) |
+            check_adjacent_nodes(row - 1, col, word, board, level + 1, maxRows, maxCol) ||
             /** check bottom */
-            check_adjacent_nodes(row + 1, col, word, board, level + 1, maxRows, maxCol) |
+            check_adjacent_nodes(row + 1, col, word, board, level + 1, maxRows, maxCol) ||
             /** check left */
-            check_adjacent_nodes(row, col - 1, word, board, level + 1, maxRows, maxCol) |
+            check_adjacent_nodes(row, col - 1, word, board, level + 1, maxRows, maxCol) ||
             /** check right */
             check_adjacent_nodes(row, col + 1, word, board, level + 1, maxRows, maxCol)
             board[row][col] = tmp
@@ -55,7 +55,7 @@ const check_adjacent_nodes = (row, col, word, board, level, maxRows, maxCol) => 
 
 
 let board = [['A', 'B', 'C', 'E'],['S', 'F', 'C', 'S'], ['A','D','E', 'E']]
-let word = 'ABCESEECS'
+let word = 'ABCESEEC'
 
 let result = exist(board, word)
 console.log(result)
